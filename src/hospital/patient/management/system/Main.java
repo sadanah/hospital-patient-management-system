@@ -4,6 +4,7 @@
  */
 package hospital.patient.management.system;
 
+import java.util.Scanner;
 /**
  *
  * @author Sadana
@@ -14,7 +15,41 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        System.out.print("=================================================\n");
+        System.out.print("       HOSPITAL PATIENT MANAGEMENT SYSTEM\n");
+        System.out.print("=================================================\n\n");
+        
+        System.out.print("How many patients do you want to process?: ");
+        Scanner scanner = new Scanner(System.in);
+        int patientCount = scanner.nextInt();
+        
+        while (patientCount > 0) {
+
+            Patient patient = new Patient(0, null, 0, null, 0);
+
+            System.out.print("\nEnter patient ID: ");
+            int patientID = scanner.nextInt();
+            patient.setPatientID(patientID);
+            
+            System.out.print("Enter patient name: ");
+            String patientName = scanner.next();
+            patient.setPatientName(patientName);
+
+            System.out.print("Enter patient age: ");
+            int age = scanner.nextInt(); 
+            patient.setAge(age);   
+
+            System.out.print("Enter patient illness: ");
+            String illness = scanner.next();
+            patient.setIllness(illness);
+
+            System.out.print("Enter patient bill amount (e.g. Rs.10,000.00 = 1000000): ");
+            int billAmount = scanner.nextInt();
+            patient.setBillAmount(billAmount);
+
+            patientCount--;
+        }
     }
     
 }
